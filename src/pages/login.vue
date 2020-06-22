@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 购物车 -->
-    用户首页
+    管理登录
   </div>
 </template>
 <script>
