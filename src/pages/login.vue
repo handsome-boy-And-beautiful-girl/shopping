@@ -11,8 +11,11 @@
             <input class="Account" v-model="Account"   placeholder="账号"/><br>
             <input class="password" v-model="password" type="password" placeholder="密码"/><br>
             <button class="login-btn" type="submit"  @click="login">登陆</button>
-            <button class="login-btn2">注册</button>
+            <button class="login-btn2" @click="handRegister">注册</button>
         </from>
+      </div>
+      <div class="register">
+
       </div>
     </div>
   </div>
@@ -42,6 +45,9 @@ export default {
       }else{
         this.$router.push({path:'/Aindex'})
       }
+    },
+    handRegister(){
+      this.$router.push({path:'/register'})
     }
   }
 }
@@ -85,6 +91,7 @@ export default {
   position:absolute;
   top:0;
   right:300px;
+  z-index: 9999;
   width:350px;
   height:400px;
   border:1px solid #333;
@@ -129,5 +136,17 @@ export default {
 .login-btn2{
     background:#99CC33;
 }
+.register{
+ position:absolute;
+  top:0;
+  right:300px;
+  width:350px;
+  height:400px;
+  border:1px solid #333;
+  margin-right: 150px;
+  background: white;
+
+}
+
 
 </style>

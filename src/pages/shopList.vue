@@ -2,6 +2,7 @@
   <div>
     <!-- 首页 -->
     商品管理
+    这里管理商品信息
   </div>
 </template>
 <script>

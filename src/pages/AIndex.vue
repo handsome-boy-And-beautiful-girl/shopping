@@ -1,32 +1,29 @@
 <template>
   <div class="box">
-    <div class="header">在线超市系统</div>
+    <div class="header">在线超市系统管理界面</div>
     <div class="center"></div>
     <!-- 购物车 -->
     <div>
       <el-container style="height: 500px; border: 1px solid #eee">
-  <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
-    <el-menu v-for="(item,index) in list" :key="index">
-      <el-submenu :index="String(index)">
-        <template slot="title"  >
-          <div  @click="handpages(item.path)" style="widht:100%;height:100%">
-            <i :class="item.icon"></i>{{item.name}}
-          </div>
-        </template>
-      </el-submenu>
-    </el-menu>
-  </el-aside>
+        <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+          <el-menu v-for="(item,index) in list" :key="index">
+            <el-submenu :index="String(index)">
+              <template slot="title"  >
+                <div  @click="handpages(item.path)" style="widht:100%;height:100%">
+                  <i :class="item.icon"></i>{{item.name}}
+                </div>
+              </template>
+            </el-submenu>
+          </el-menu>
+        </el-aside>
   
-  <el-container>
-    <!-- <el-header style="text-align: right; font-size: 12px">
-     154
-    </el-header> -->
-    
-    <el-main style="border:5px solid #333;">
-      <router-view></router-view>
-    </el-main>
-  </el-container>
-</el-container>
+        <el-container>
+          <!-- <el-header style="text-align: right; font-size: 12px"</el-header> -->
+          <el-main>
+            <router-view></router-view>
+          </el-main>
+        </el-container>
+      </el-container>
     </div>
 
   </div>
@@ -39,20 +36,17 @@ export default {
 
         {
           name: '商品管理',
-          index: 1,
-          path: 'Aindex/shopList',
+          path: '/shopList',
           icon: 'el-icon-message'
         },
         {
           name: '用户管理',
-          index: 1,
-          path: '/shopLit',
+          path: '/user',
           icon: 'el-icon-menu'
         },
         {
           name: '订单管理',
-          index: 1,
-          path: '/shopLit',
+          path: '/order',
           icon: 'el-icon-setting'
         }
       ]

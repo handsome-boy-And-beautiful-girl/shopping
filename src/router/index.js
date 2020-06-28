@@ -7,7 +7,9 @@ const center = ()=>import('../pages/center.vue')
 const login = () =>import('../pages/login.vue')
 const Aindex = () =>import('../pages/AIndex.vue')
 const Register = () => import('../pages/register.vue')
-const shopList = () =>('../pages/shopList.vue')
+const shopList = () => import('../pages/shopList.vue')
+const user = () => import('../pages/user.vue')
+const order = () => import('../pages/order.vue')
 
 Vue.use(Router)
 
@@ -37,6 +39,16 @@ export default new Router({
           path:'/shopList',
           name: '商品管理',
           component: shopList
+        },
+        {
+          path:'/user',
+          name: '用户管理',
+          component: user
+        },
+        {
+          path:'/order',
+          name: '订单管理',
+          component: order
         }
       ]
     },
