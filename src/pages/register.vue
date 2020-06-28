@@ -13,6 +13,7 @@
           <label>电话：</label><input style="" type="text" /><br>
           <label>邮箱：</label><input style="" type="text" /><br>
           <label>密码：</label><input style="" type="text" /><br>
+          <button class="btn" @click="backPages"> 上一页</button>
           <button class="register_btn"> 注册</button>
         </form>
 
@@ -25,6 +26,11 @@ export default {
   data () {
     return {
       
+    }
+  },
+  methods:{
+    backPages(){
+      window.history.back()
     }
   }
 }
@@ -111,5 +117,13 @@ label{
   color:white;
   border:none;
   background:#99CC33;
+}
+.btn{
+   width:35%;
+  height:28px;
+  margin-top:15px;
+  color:white;
+  border:none;
+  background:#1d80dd;
 }
 </style>
