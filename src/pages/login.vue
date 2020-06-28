@@ -40,7 +40,7 @@ export default {
       }else if(this.password == null){
         alert("密码格式不正确")
       }else{
-        this.$router.push({path:'/'})
+        this.$router.push({path:'/Aindex'})
       }
     }
   }
