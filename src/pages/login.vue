@@ -8,9 +8,9 @@
         <div class="login_title">用户登录</div>
         <p>请输入用户名密码进入系统</p>
         <from>
-            <input class="Account"   placeholder="账号"/><br>
-            <input class="password"  placeholder="密码"/><br>
-            <button class="login-btn" type="submit">登陆</button>
+            <input class="Account" v-model="Account"   placeholder="账号"/><br>
+            <input class="password" v-model="password" type="password" placeholder="密码"/><br>
+            <button class="login-btn" type="submit"  @click="login">登陆</button>
             <button class="login-btn2">注册</button>
         </from>
       </div>
@@ -21,7 +21,27 @@
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      Account: null,
+      password: null,
+      title: null
+    }
+  },
+  mounted(){
+
+  },
+  methods: {
+    login(){
+      console.log(this.Account)
+      console.log(this.password)
+      const lengs = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|4|5|6|7|8|9])\d{8}$/
+      const paw = /^ [a-zA-Z]\w{5,17}$/ // 长度为5-17 密码为数字和字符
+      if(!lengs.test(this.Account || !this.Account != null)){
+        alert("账号格式不正确")
+      }else if(this.password == null){
+        alert("密码格式不正确")
+      }else{
+        this.$router.push({path:'/'})
+      }
     }
   }
 }
@@ -89,10 +109,10 @@ export default {
   margin-bottom:15px;
 }
 .Account,.password{
-   width:80%;
-   height:30px;
-   padding-left:5px;
- } 
+  width:80%;
+  height:30px;
+  padding-left:5px;
+} 
 .Account{
   margin:15px auto;
 }
