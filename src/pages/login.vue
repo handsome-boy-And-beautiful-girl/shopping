@@ -21,6 +21,7 @@
   </div>
 </template>
 <script>
+import loginApi from '../http/loginApi'
 export default {
   data () {
     return {
@@ -36,6 +37,10 @@ export default {
     login(){
       console.log(this.Account)
       console.log(this.password)
+      loginData = {
+        UserName: this.Account,
+        Password: this.password
+      }
       const lengs = /^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|4|5|6|7|8|9])\d{8}$/
       const paw = /^ [a-zA-Z]\w{5,17}$/ // 长度为5-17 密码为数字和字符
       if(!lengs.test(this.Account || !this.Account != null)){
@@ -43,7 +48,14 @@ export default {
       }else if(this.password == null){
         alert("密码格式不正确")
       }else{
-        this.$router.push({path:'/Aindex'})
+        loginApi.UserLogin(loginData).then(res=()=>{
+          if(res.status === 200){
+            console.log("登录成功")
+            this.$router.push({path:'/Aindex'})
+          }else{
+            console.log("登录失败")
+          }
+        })
       }
     },
     handRegister(){
