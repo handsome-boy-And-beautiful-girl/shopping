@@ -2,6 +2,8 @@
   <div>
     <!-- 购物车 -->
     用户首页
+    商品显示
+
   </div>
 </template>
 <script>
