@@ -8,6 +8,7 @@
         <el-tag type="info">标签三</el-tag>
         <el-tag type="warning">标签四</el-tag>
         <el-tag type="danger">标签五</el-tag>
+        <i class="iconfont">&#xe63e;</i>
     </div>
   </div>
 </template>
