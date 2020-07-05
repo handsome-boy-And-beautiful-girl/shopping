@@ -1,7 +1,10 @@
 import baseApi from'./baseApi'
 
 export default 　{
-    UserLogin(){
-        return baseApi.post("/doLogin",loginData)
+    UserLogin(Account,password){
+        return baseApi.post("/login", {
+          Phone: Account,
+          PassWord: password
+        })
     }
 }

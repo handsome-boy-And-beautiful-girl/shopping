@@ -8,29 +8,43 @@
         <div class="register_title">用户注册</div>
         <p>请输入填写个人信息</p>
         <form>
-          <label>用户名：</label><input style="" type="text" /><br>
-          <label>昵称：</label><input style="" type="text" /><br>
-          <label>电话：</label><input style="" type="text" /><br>
-          <label>邮箱：</label><input style="" type="text" /><br>
-          <label>密码：</label><input style="" type="text" /><br>
+          <label>用户名：</label><input v-model="username"  type="text" /><br>
+          <label>昵称：</label><input  v-model="nikeName" type="text" /><br>
+          <label>电话：</label><input  v-model="phone" type="text" /><br>
+          <label>邮箱：</label><input  v-model="email" type="text" /><br>
+          <label>密码：</label><input  v-model="password" type="password" /><br>
           <button class="btn" @click="backPages"> 上一页</button>
-          <button class="register_btn"> 注册</button>
+          <button class="register_btn" type="button" @click="register"> 注册</button>
         </form>
-
       </div>
     </div>
   </div>
 </template>
 <script>
+import userApi from '../http/userApi.js'
 export default {
   data () {
     return {
-      
+      username: null,
+      phone: null,
+      password: null,
+      nikeName: null,
+      email: null
     }
   },
   methods:{
     backPages(){
       window.history.back()
+    },
+    register(){
+      userApi.UserRegister(this.username,this.phone,this.password,this.email).then(res=>{
+        if(res.code === 0){
+          console.log(res)
+          this.$router.push({path:'/login'})
+        }else{
+          alert("注册失败")
+        }
+      }).catch({})
     }
   }
 }
@@ -104,7 +118,7 @@ input{
   display: inline-block;
   width: 75%;
   height: 30px;
-  text-align: right;
+  text-align: left;
 }
 label{
   display: inline-block;

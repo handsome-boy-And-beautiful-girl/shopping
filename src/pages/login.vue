@@ -7,15 +7,12 @@
       <div class="login">
         <div class="login_title">用户登录</div>
         <p>请输入用户名密码进入系统</p>
-        <from>
+        <from name="loginFrom">
             <input class="Account" v-model="Account"   placeholder="账号"/><br>
             <input class="password" v-model="password" type="password" placeholder="密码"/><br>
             <button class="login-btn" type="submit"  @click="login">登陆</button>
             <button class="login-btn2" @click="handRegister">注册</button>
         </from>
-      </div>
-      <div class="register">
-
       </div>
     </div>
   </div>
@@ -37,7 +34,7 @@ export default {
     login(){
       console.log(this.Account)
       console.log(this.password)
-      loginData = {
+      const Data = {
         UserName: this.Account,
         Password: this.password
       }
@@ -48,8 +45,8 @@ export default {
       }else if(this.password == null){
         alert("密码格式不正确")
       }else{
-        loginApi.UserLogin(loginData).then(res=()=>{
-          if(res.status === 200){
+        loginApi.UserLogin(this.Account,this.password).then(res=>{
+          if(res.code === 0){
             console.log("登录成功")
             this.$router.push({path:'/Aindex'})
           }else{
