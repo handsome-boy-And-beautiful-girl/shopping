@@ -47,13 +47,17 @@ export default {
           name: '订单管理',
           path: '/order',
           icon: 'el-icon-setting'
+        },{
+          name: '商品推荐管理',
+          path: '/recommend',
+          icon: 'el-icon-setting'
         }
       ]
     }
   },
   methods:{
     handpages(url){
-      console.log(url)
+      // console.log(url)
       this.$router.push({path:url})
     }
   }

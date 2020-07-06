@@ -9,5 +9,8 @@ export default 　{
         NikeName: nikeName,
         Email: email
       })
+    },
+    getUserList(Num){
+      return baseApi.post("/user/getUserList",{pageNum: Num})
     }
 }

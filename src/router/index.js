@@ -10,6 +10,7 @@ const Register = () => import('../pages/register.vue')
 const shopList = () => import('../pages/shopList.vue')
 const user = () => import('../pages/user.vue')
 const order = () => import('../pages/order.vue')
+const Recommend = () => import('../pages/Recommend.vue')
 
 Vue.use(Router)
 
@@ -49,6 +50,10 @@ export default new Router({
           path:'/order',
           name: '订单管理',
           component: order
+        },{
+          path:'/recommend',
+          name: '商品推荐管理',
+          component:  Recommend
         }
       ]
     },

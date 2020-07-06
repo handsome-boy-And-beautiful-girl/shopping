@@ -4,7 +4,7 @@
     <div>
       <div class="shopAdd" @click="dialogTableVisible=true">添加商品</div>
       <el-table ref="filterTable" :data="list" style="width: 100%">
-        <el-table-column prop="" label="序号" width="120"></el-table-column>
+        <el-table-column type="index" label="序号" width="120"></el-table-column>
         <el-table-column prop="shopName" label="商品名" width="120"></el-table-column>
         <el-table-column prop="id" label="商品编号" width="120"></el-table-column>
         <el-table-column prop="price" label="商品价格" width="120"></el-table-column>
@@ -13,10 +13,10 @@
         <el-table-column prop="describe" label="描述" width="180"></el-table-column>
         <el-table-column label="操作" width="350">
           <template slot-scope="scope">
-            <button>编辑</button>
-            <button @click="deleteshop(scope.$index, list)">删除</button>
-            <button @click=" Remmend(scope.$index, list)">添加到推荐</button>
-</template>
+              <button>编辑</button>
+              <button @click="deleteshop(scope.$index, list)">删除</button>
+              <button @click=" Remmend(scope.$index, list)">添加到推荐</button>
+          </template>
         </el-table-column>
       </el-table>
       <!-- 分页 -->
